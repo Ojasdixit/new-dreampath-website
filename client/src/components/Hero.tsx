@@ -74,7 +74,7 @@ const Hero = () => {
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-400/20 via-transparent to-blue-500/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 via-blue-800/40 to-blue-950/70"></div>
 
       {/* Content */}
       <div className="relative z-10 text-left text-white max-w-4xl mx-auto px-6 ml-8">
