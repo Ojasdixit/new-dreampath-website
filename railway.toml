@@ -1,0 +1,30 @@
+[build]
+  # Set the build command for the server
+  builder = "nixpacks"
+  buildCommand = "cd server && npm install && npm run build"
+  
+  # Set the start command for the server
+  startCommand = "cd server && npm start"
+  
+  # Set the root directory to the server folder
+  base = "server"
+  
+[deploy]
+  # Set the deployment target to nodejs
+  target = "nodejs"
+  
+  # Set the node version
+  nodeVersion = "18"
+  
+[build.environment]
+  # Set environment variables if needed
+  NODE_ENV = "production"
+  
+# If you need to run any database migrations
+# [deploy.start]
+#   command = "cd server && npm run db:push && npm start"
+#   wait = 30  # Wait 30 seconds for the database to be ready
+
+# If you need to install any system dependencies
+# [build.extraPackages]
+#   system = ["postgresql"]
