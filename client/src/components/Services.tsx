@@ -87,10 +87,10 @@ const Services = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold text-black mb-6">
             Our Services
           </ParallaxText>
-          <ParallaxText speed={0.4} className="text-xl text-gray-800 max-w-3xl mx-auto">
+          <ParallaxText speed={0.4} className="text-xl text-black max-w-3xl mx-auto">
             We offer comprehensive digital solutions to help your business thrive in the digital landscape.
           </ParallaxText>
         </div>
@@ -99,12 +99,12 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/30 hover:border-white/50 transition-all duration-300 shadow-lg"
+              className="service-card bg-black/20 backdrop-blur-sm rounded-2xl p-8 border border-black/30 hover:border-black/50 transition-all duration-300"
             >
               <div className="text-4xl mb-6">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-              <p className="text-gray-800 leading-relaxed">{service.description}</p>
-              <button className="mt-6 text-gray-700 hover:text-gray-900 transition-colors font-medium">
+              <h3 className="text-2xl font-bold text-black mb-4">{service.title}</h3>
+              <p className="text-black leading-relaxed">{service.description}</p>
+              <button className="mt-6 text-black hover:text-gray-800 transition-colors font-medium">
                 Learn More →
               </button>
             </div>
@@ -113,10 +113,10 @@ const Services = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <ParallaxText speed={0.5} className="text-2xl text-gray-800 mb-8">
+          <ParallaxText speed={0.5} className="text-2xl text-black mb-8">
             Ready to start your project?
           </ParallaxText>
-          <button className="bg-white/80 backdrop-blur-sm border border-white/50 text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-lg">
+          <button className="bg-black/20 backdrop-blur-sm border border-black/30 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-black/30 transition-all duration-300 hover:scale-105">
             Get Started Today
           </button>
         </div>
