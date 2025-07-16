@@ -1,5 +1,4 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
     "target": "ES2022",
     "module": "NodeNext",
@@ -8,14 +7,12 @@
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist",
-    "rootDir": ".",
+    "baseUrl": ".",
     "paths": {
-      "@shared/*": ["./shared/*"]
+      "@shared/*": ["./server/shared/*"]
     },
     "types": ["node"],
     "lib": ["es2022", "dom"]
   },
-  "include": ["./src/**/*.ts", "./index.ts"],
   "exclude": ["node_modules", "dist"]
 }
