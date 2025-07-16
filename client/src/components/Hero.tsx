@@ -61,7 +61,7 @@ const Hero = () => {
       {/* Video Background */}
       <div 
         ref={videoRef}
-        className="absolute inset-0 w-full h-[120%] -top-[10%]"
+        className="absolute inset-0 w-full h-[120%] -top-[10%] bg-black/20"
       >
         <div style={{position:"relative",aspectRatio:"16/9"}}>
           <iframe 
