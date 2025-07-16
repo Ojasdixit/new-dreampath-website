@@ -1,155 +1,144 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ParallaxText from "./ParallaxText";
 
-const Services = () => {
-  const servicesRef = useRef<HTMLDivElement>(null);
-
+const Services: React.FC = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate services cards
-      gsap.from(".service-card", {
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: servicesRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          scrub: false
+      // Animate service cards on scroll
+      gsap.fromTo(
+        ".service-card",
+        {
+          y: 100,
+          opacity: 0,
+          scale: 0.8,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: ".services-grid",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
         }
-      });
+      );
 
-      // Hover animations for service cards
-      const serviceCards = document.querySelectorAll('.service-card');
-      serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-          gsap.to(card, {
-            scale: 1.05,
-            duration: 0.3,
-            ease: "power2.out"
-          });
-        });
-
-        card.addEventListener('mouseleave', () => {
-          gsap.to(card, {
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.out"
-          });
-        });
+      // Floating animation for service cards
+      gsap.to(".service-card", {
+        y: -10,
+        duration: 2,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: -1,
+        stagger: 0.3,
       });
-    }, servicesRef);
+    });
 
     return () => ctx.revert();
   }, []);
 
   const services = [
     {
-      title: "Creative Solutions",
-      description: "Innovative design approaches that blend creativity with cutting-edge technology for unique digital experiences.",
-      icon: "✨",
-      gradient: "from-purple-400 to-pink-400"
+      title: "Web Development",
+      description: "Full-stack web development using modern technologies like React, Node.js, and cloud services to build powerful, scalable applications.",
+      icon: "🌐",
+      gradient: "from-blue-500 to-purple-600"
     },
     {
-      title: "Brand Identity",
-      description: "Comprehensive brand development including logos, color schemes, and visual identity systems.",
-      icon: "🎨",
-      gradient: "from-blue-400 to-cyan-400"
+      title: "3D Design",
+      description: "Creating stunning 3D models, animations, and interactive experiences using cutting-edge tools and rendering technologies.",
+      icon: "🎯",
+      gradient: "from-purple-500 to-pink-600"
     },
     {
-      title: "Digital Experiences",
-      description: "Interactive web applications and immersive digital platforms that engage and inspire users.",
-      icon: "🌟",
-      gradient: "from-green-400 to-blue-400"
+      title: "Mobile App Development",
+      description: "Native and cross-platform mobile applications for iOS and Android that deliver exceptional user experiences.",
+      icon: "📱",
+      gradient: "from-green-500 to-blue-600"
     },
     {
-      title: "Motion Graphics",
-      description: "Dynamic animations and motion design that bring your brand story to life with visual impact.",
-      icon: "🎬",
-      gradient: "from-orange-400 to-red-400"
-    },
-    {
-      title: "User Experience",
-      description: "User-centered design methodologies that create intuitive and delightful digital interactions.",
-      icon: "👤",
-      gradient: "from-teal-400 to-green-400"
-    },
-    {
-      title: "Technology Integration",
-      description: "Advanced technical solutions including AI integration, cloud services, and modern frameworks.",
+      title: "Web Apps Development",
+      description: "Progressive web applications with offline capabilities, push notifications, and native app-like experiences.",
       icon: "⚡",
-      gradient: "from-indigo-400 to-purple-400"
+      gradient: "from-orange-500 to-red-600"
     }
   ];
 
   return (
-    <section
-      id="services"
-      ref={servicesRef}
-      className="relative min-h-screen py-20 px-6"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Hero Section with Image */}
-        <div className="relative mb-20 rounded-3xl overflow-hidden shadow-2xl">
-          <img 
-            src="/images/services-hero.jpg" 
-            alt="Digital Services Team" 
-            className="w-full h-96 object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-            <div className="text-center text-white">
-              <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold mb-6">
-                Our Services
-              </ParallaxText>
-              <ParallaxText speed={0.4} className="text-xl max-w-3xl mx-auto">
-                We offer comprehensive digital solutions to help your business thrive in the digital landscape.
-              </ParallaxText>
-            </div>
-          </div>
+    <section id="services" className="min-h-screen py-20 relative overflow-hidden bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <ParallaxText speed={0.8} className="text-6xl font-bold text-white mb-6">
+            Our Services
+          </ParallaxText>
+          <div className="w-32 h-1 bg-white/30 mx-auto mb-8"></div>
+          <ParallaxText speed={0.6} className="text-xl text-white/90 max-w-3xl mx-auto">
+            We specialize in creating digital solutions that transform ideas into reality. 
+            From concept to deployment, we deliver excellence in every project.
+          </ParallaxText>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Services Grid */}
+        <div className="services-grid grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card group relative overflow-hidden bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:border-white/40 transition-all duration-500 hover:scale-105 hover:-translate-y-2"
+              className="service-card group relative overflow-hidden bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 hover:border-white/40 transition-all duration-500 hover:scale-105 hover:shadow-2xl"
               style={{
-                animationDelay: `${index * 100}ms`
+                animationDelay: `${index * 150}ms`
               }}
             >
               {/* Gradient Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
               
-              {/* Floating Animation */}
+              {/* Content */}
               <div className="relative z-10">
-                <div className="text-5xl mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
+                {/* Icon */}
+                <div className="text-6xl mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
                   {service.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-white transition-colors duration-300">
+                
+                {/* Title */}
+                <h3 className="text-3xl font-bold text-white mb-6 group-hover:text-white transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-white/80 leading-relaxed mb-6 group-hover:text-white transition-colors duration-300">
+                
+                {/* Description */}
+                <p className="text-white/80 leading-relaxed text-lg mb-8 group-hover:text-white transition-colors duration-300">
                   {service.description}
                 </p>
                 
                 {/* Animated Button */}
-                <button className="relative overflow-hidden bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 transform group-hover:scale-105">
-                  <span className="relative z-10">Explore →</span>
+                <button className="relative overflow-hidden bg-white/20 hover:bg-white/30 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 transform group-hover:scale-105 group-hover:shadow-lg">
+                  <span className="relative z-10">Learn More →</span>
                   <div className="absolute inset-0 bg-white/10 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
                 </button>
               </div>
               
-              {/* Corner Decoration */}
-              <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-white/30 group-hover:border-white/60 transition-colors duration-300"></div>
-              <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-white/30 group-hover:border-white/60 transition-colors duration-300"></div>
+              {/* Decorative Elements */}
+              <div className="absolute top-6 right-6 w-12 h-12 border-t-2 border-r-2 border-white/30 group-hover:border-white/60 transition-colors duration-300 rounded-tr-lg"></div>
+              <div className="absolute bottom-6 left-6 w-12 h-12 border-b-2 border-l-2 border-white/30 group-hover:border-white/60 transition-colors duration-300 rounded-bl-lg"></div>
+              
+              {/* Floating Particles */}
+              <div className="absolute top-4 left-4 w-2 h-2 bg-white/40 rounded-full animate-pulse"></div>
+              <div className="absolute top-12 right-12 w-1 h-1 bg-white/40 rounded-full animate-ping"></div>
+              <div className="absolute bottom-8 right-8 w-2 h-2 bg-white/40 rounded-full animate-pulse delay-500"></div>
             </div>
           ))}
         </div>
-
-
       </div>
     </section>
   );
