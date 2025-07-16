@@ -17,10 +17,6 @@ import ScrollParticles from "./components/ScrollParticles";
 import ParticleField from "./components/ParticleField";
 import MorphingGeometry from "./components/MorphingGeometry";
 import DynamicLighting from "./components/DynamicLighting";
-import InteractiveFeedback from "./components/InteractiveFeedback";
-import CherryBlossomSun from "./components/CherryBlossomSun";
-import CherryBlossomTrees from "./components/CherryBlossomTrees";
-import FallingPetals from "./components/FallingPetals";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -54,7 +50,7 @@ function App() {
       ref={containerRef}
       className="relative w-full min-h-screen overflow-x-hidden"
       style={{
-        background: 'linear-gradient(135deg, #F0F8FF 0%, #E6F3FF 25%, #FFE4E1 50%, #FFF0F5 75%, #F8F8FF 100%)',
+        background: 'linear-gradient(135deg, #87CEEB 0%, #B6E5F7 25%, #E0F6FF 50%, #B6E5F7 75%, #87CEEB 100%)',
       }}
     >
       {/* Fixed Three.js Canvas for 3D effects */}
@@ -72,26 +68,21 @@ function App() {
           }}
         >
           <Suspense fallback={null}>
-            <CherryBlossomSun />
-            <CherryBlossomTrees />
-            <FallingPetals />
-            <ParticleField count={50} size={0.6} speed={0.001} color="#FFE4E1" />
+            <AnimatedBackground />
+            <ScrollParticles />
+            <ParticleField count={300} size={1.5} speed={0.002} color="#B6E5F7" />
+            <CloudParticles />
             <FloatingElements />
             <MorphingGeometry />
             <InteractiveOrb />
             <DynamicLighting />
-            <ambientLight intensity={0.7} color="#FFF8DC" />
-            <directionalLight position={[20, 12, -40]} intensity={1.2} color="#FFFACD" />
-            <directionalLight position={[-10, 5, -20]} intensity={0.4} color="#E6E6FA" />
+            <ambientLight intensity={0.4} />
           </Suspense>
         </Canvas>
       </div>
 
       {/* Navigation */}
       <Navigation />
-
-      {/* Interactive Feedback */}
-      <InteractiveFeedback />
 
       {/* Main Content */}
       <main className="relative z-10">

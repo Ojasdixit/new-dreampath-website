@@ -54,10 +54,10 @@ const Contact = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Let's Create Together
           </ParallaxText>
-          <ParallaxText speed={0.4} className="text-xl text-white/90 max-w-3xl mx-auto">
+          <ParallaxText speed={0.4} className="text-xl text-gray-800 max-w-3xl mx-auto">
             Ready to bring your vision to life? Get in touch with us and let's start your digital journey.
           </ParallaxText>
         </div>
@@ -68,62 +68,62 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-white mb-2 font-medium">Name</label>
+                  <label className="block text-gray-800 mb-2 font-medium">Name</label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-blue-400 transition-colors"
+                    className="w-full bg-white/10 backdrop-blur-sm border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors"
                     placeholder="Your Name"
                   />
                 </div>
                 <div>
-                  <label className="block text-white mb-2 font-medium">Email</label>
+                  <label className="block text-gray-800 mb-2 font-medium">Email</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-blue-400 transition-colors"
+                    className="w-full bg-white/10 backdrop-blur-sm border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-white mb-2 font-medium">Subject</label>
+                <label className="block text-gray-800 mb-2 font-medium">Subject</label>
                 <input
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-blue-400 transition-colors"
+                  className="w-full bg-white/10 backdrop-blur-sm border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors"
                   placeholder="Project Subject"
                 />
               </div>
 
               <div>
-                <label className="block text-white mb-2 font-medium">Message</label>
+                <label className="block text-gray-800 mb-2 font-medium">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-blue-400 transition-colors resize-none"
+                  className="w-full bg-white/10 backdrop-blur-sm border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-blue-500/80 backdrop-blur-sm border border-blue-500/50 text-white py-4 rounded-lg text-lg font-semibold hover:bg-blue-600/90 transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg"
+                className="w-full bg-gray-900/20 backdrop-blur-sm border border-gray-900/30 text-gray-900 py-4 rounded-lg text-lg font-semibold hover:bg-gray-900/30 transition-all duration-300 hover:scale-105"
               >
-                Send Message ✨
+                Send Message
               </button>
             </form>
           </div>
@@ -131,26 +131,26 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="contact-content">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
               
               <div className="space-y-6">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-blue-300 text-xl">📧</span>
+                  <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-gray-800 text-xl">📧</span>
                   </div>
                   <div>
-                    <div className="text-white font-medium">Email</div>
-                    <div className="text-white/80">hello@dreampath.design</div>
+                    <div className="text-gray-900 font-medium">Email</div>
+                    <div className="text-gray-700">hello@dreampath.design</div>
                   </div>
                 </div>
 
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-blue-300 text-xl">📱</span>
+                  <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-gray-800 text-xl">📱</span>
                   </div>
                   <div>
-                    <div className="text-white font-medium">Phone</div>
-                    <div className="text-white/80">+1 (555) 123-4567</div>
+                    <div className="text-gray-900 font-medium">Phone</div>
+                    <div className="text-gray-700">+1 (555) 123-4567</div>
                   </div>
                 </div>
 
