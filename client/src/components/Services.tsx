@@ -91,13 +91,13 @@ const Services = () => {
         <div className="text-center mb-16">
           <LetterReveal 
             trigger="#services"
-            className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+            className="text-5xl md:text-6xl font-bold text-white mb-6"
             stagger={0.08}
             duration={1.2}
           >
-            Our <MorphingText words={["Services", "Solutions", "Expertise", "Capabilities"]} className="text-blue-600" speed={2} />
+            Our <MorphingText words={["Services", "Solutions", "Expertise", "Capabilities"]} className="text-blue-300" speed={2} />
           </LetterReveal>
-          <ParallaxText speed={0.4} className="text-xl text-gray-800 max-w-3xl mx-auto">
+          <ParallaxText speed={0.4} className="text-xl text-white/90 max-w-3xl mx-auto">
             We offer comprehensive digital solutions to help your business thrive in the digital landscape.
           </ParallaxText>
         </div>
@@ -109,10 +109,10 @@ const Services = () => {
               className="service-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300"
             >
               <div className="text-4xl mb-6">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-              <p className="text-gray-800 leading-relaxed">{service.description}</p>
+              <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
+              <p className="text-white/90 leading-relaxed">{service.description}</p>
               <button 
-                className="mt-6 text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium hover:scale-105 cursor-pointer"
+                className="mt-6 text-white/80 hover:text-blue-300 transition-all duration-300 font-medium hover:scale-105 cursor-pointer"
                 onClick={(e) => {
                   gsap.to(e.target, { duration: 0.2, scale: 1.2 });
                   gsap.to(e.target, { duration: 0.3, scale: 1.05, delay: 0.2 });
@@ -126,7 +126,7 @@ const Services = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <ParallaxText speed={0.5} className="text-2xl text-gray-800 mb-8">
+          <ParallaxText speed={0.5} className="text-2xl text-white mb-8">
             Ready to start your project?
           </ParallaxText>
           <button 
