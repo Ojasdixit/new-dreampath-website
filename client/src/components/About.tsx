@@ -44,14 +44,14 @@ const About = () => {
     <section
       id="about"
       ref={aboutRef}
-      className="relative min-h-screen py-20 px-6 bg-black/60"
+      className="relative min-h-screen py-20 px-6 bg-slate-100/95"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <ParallaxText speed={0.3} className="about-content text-5xl md:text-6xl font-bold text-white mb-6">
+          <ParallaxText speed={0.3} className="about-content text-5xl md:text-6xl font-bold text-gray-800 mb-6">
             About DreamPath
           </ParallaxText>
-          <ParallaxText speed={0.4} className="about-content text-xl text-white/90 max-w-3xl mx-auto">
+          <ParallaxText speed={0.4} className="about-content text-xl text-gray-700 max-w-3xl mx-auto">
             We are a creative design agency that transforms ideas into stunning digital experiences. 
             Our team of dreamers and creators craft unique solutions that elevate brands to new heights.
           </ParallaxText>
@@ -59,13 +59,13 @@ const About = () => {
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
           <div className="about-content">
-            <h3 className="text-3xl font-bold text-white mb-6">Our Vision</h3>
-            <p className="text-white/90 text-lg leading-relaxed mb-6">
+            <h3 className="text-3xl font-bold text-gray-800 mb-6">Our Vision</h3>
+            <p className="text-gray-700 text-lg leading-relaxed mb-6">
               At DreamPath, we believe in the power of creativity to transform businesses and inspire audiences. 
               Every project is a journey toward bringing your vision to life through innovative design and 
               cutting-edge technology.
             </p>
-            <p className="text-white/90 text-lg leading-relaxed">
+            <p className="text-gray-700 text-lg leading-relaxed">
               We don't just create designs; we craft experiences that resonate, engage, and leave lasting impressions. 
               Our collaborative approach ensures that every dream becomes a reality.
             </p>
