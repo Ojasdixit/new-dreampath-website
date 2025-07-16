@@ -1,8 +1,8 @@
-# Loan Lending Application (LendingKart-style)
+# DreamPath Creative Website Design Agency
 
 ## Overview
 
-This is a full-stack loan lending application built with a modern tech stack, inspired by LendingKart. The application features a React frontend with 3D animations, an Express.js backend with session-based authentication, and PostgreSQL database integration using Drizzle ORM.
+This is a Three.js-powered parallax scroll website for DreamPath creative website design agency. The website features sky-blue gradients, floating 3D clouds, smooth parallax scrolling effects, and seamless video integration in the hero section.
 
 ## User Preferences
 

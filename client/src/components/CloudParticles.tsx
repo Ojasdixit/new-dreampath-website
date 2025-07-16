@@ -3,92 +3,103 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 const CloudParticles = () => {
-  const meshRef = useRef<THREE.Points>(null);
-  const materialRef = useRef<THREE.PointsMaterial>(null);
-
-  // Generate cloud particles
-  const particles = useMemo(() => {
-    const count = 300;
-    const positions = new Float32Array(count * 3);
-    const colors = new Float32Array(count * 3);
-    const sizes = new Float32Array(count);
-
-    for (let i = 0; i < count; i++) {
-      const i3 = i * 3;
+  const groupRef = useRef<THREE.Group>(null);
+  
+  // Generate cloud shapes
+  const clouds = useMemo(() => {
+    const cloudCount = 8;
+    const cloudData = [];
+    
+    for (let i = 0; i < cloudCount; i++) {
+      // Position clouds in sky
+      const x = (Math.random() - 0.5) * 60;
+      const y = Math.random() * 15 + 5;
+      const z = (Math.random() - 0.5) * 40;
       
-      // Position particles in a large sphere around the camera
-      const radius = Math.random() * 50 + 20;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.random() * Math.PI;
-      
-      positions[i3] = radius * Math.sin(phi) * Math.cos(theta);
-      positions[i3 + 1] = radius * Math.cos(phi);
-      positions[i3 + 2] = radius * Math.sin(phi) * Math.sin(theta);
-
-      // Cloud-like colors (white to light blue)
-      const colorIntensity = Math.random() * 0.5 + 0.5;
-      colors[i3] = colorIntensity; // R
-      colors[i3 + 1] = colorIntensity; // G
-      colors[i3 + 2] = Math.min(1, colorIntensity + 0.1); // B (slightly more blue)
-
-      // Varying sizes
-      sizes[i] = Math.random() * 3 + 1;
+      cloudData.push({
+        position: [x, y, z],
+        scale: Math.random() * 2 + 1,
+        rotation: Math.random() * Math.PI * 2,
+        speed: Math.random() * 0.2 + 0.1
+      });
     }
-
-    return { positions, colors, sizes };
+    
+    return cloudData;
   }, []);
 
-  // Animate particles
+  // Animate clouds
   useFrame((state) => {
-    if (meshRef.current && materialRef.current) {
-      // Rotate the entire particle system slowly
-      meshRef.current.rotation.y += 0.0005;
+    if (groupRef.current) {
+      // Slowly rotate all clouds
+      groupRef.current.rotation.y += 0.0002;
       
-      // Pulse opacity for cloud-like effect
-      materialRef.current.opacity = 0.3 + Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-      
-      // Animate individual particles
-      const positions = meshRef.current.geometry.attributes.position.array as Float32Array;
-      for (let i = 0; i < positions.length; i += 3) {
-        positions[i + 1] += Math.sin(state.clock.elapsedTime * 0.5 + i * 0.01) * 0.01;
-      }
-      meshRef.current.geometry.attributes.position.needsUpdate = true;
+      // Move individual clouds
+      groupRef.current.children.forEach((cloud, index) => {
+        const cloudData = clouds[index];
+        cloud.position.x += Math.sin(state.clock.elapsedTime * cloudData.speed) * 0.005;
+        cloud.rotation.z += 0.0005;
+      });
     }
   });
 
   return (
-    <points ref={meshRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particles.positions.length / 3}
-          array={particles.positions}
-          itemSize={3}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          count={particles.colors.length / 3}
-          array={particles.colors}
-          itemSize={3}
-        />
-        <bufferAttribute
-          attach="attributes-size"
-          count={particles.sizes.length}
-          array={particles.sizes}
-          itemSize={1}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        ref={materialRef}
-        size={2}
-        sizeAttenuation={true}
-        transparent={true}
-        opacity={0.4}
-        vertexColors={true}
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-      />
-    </points>
+    <group ref={groupRef}>
+      {clouds.map((cloud, index) => (
+        <group key={index} position={cloud.position} scale={cloud.scale} rotation={[0, 0, cloud.rotation]}>
+          {/* Main cloud body */}
+          <mesh position={[0, 0, 0]}>
+            <sphereGeometry args={[2, 16, 16]} />
+            <meshBasicMaterial 
+              color="#ffffff" 
+              transparent 
+              opacity={0.6}
+              fog={false}
+            />
+          </mesh>
+          
+          {/* Cloud bumps for realistic shape */}
+          <mesh position={[-1.5, 0.5, 0]}>
+            <sphereGeometry args={[1.2, 12, 12]} />
+            <meshBasicMaterial 
+              color="#ffffff" 
+              transparent 
+              opacity={0.5}
+              fog={false}
+            />
+          </mesh>
+          
+          <mesh position={[1.8, 0.3, 0]}>
+            <sphereGeometry args={[1.5, 12, 12]} />
+            <meshBasicMaterial 
+              color="#ffffff" 
+              transparent 
+              opacity={0.4}
+              fog={false}
+            />
+          </mesh>
+          
+          <mesh position={[0, 1.2, 0]}>
+            <sphereGeometry args={[1, 12, 12]} />
+            <meshBasicMaterial 
+              color="#ffffff" 
+              transparent 
+              opacity={0.5}
+              fog={false}
+            />
+          </mesh>
+          
+          <mesh position={[-0.8, -0.8, 0]}>
+            <sphereGeometry args={[1.3, 12, 12]} />
+            <meshBasicMaterial 
+              color="#ffffff" 
+              transparent 
+              opacity={0.4}
+              fog={false}
+            />
+          </mesh>
+        </group>
+      ))}
+    </group>
   );
 };
 

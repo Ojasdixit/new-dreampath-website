@@ -79,17 +79,28 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
-        <ParallaxText speed={0.5} className="hero-title text-6xl md:text-8xl font-bold mb-6 text-shadow-lg" style={{textShadow: "0 4px 8px rgba(0,0,0,0.5)"}}>
+        <ParallaxText speed={0.5} className="hero-title text-6xl md:text-8xl font-bold mb-6" style={{
+          textShadow: "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 4px 8px rgba(0,0,0,0.8)",
+          WebkitTextStroke: "1px black"
+        }}>
           Dream
         </ParallaxText>
-        <ParallaxText speed={0.3} className="hero-title text-6xl md:text-8xl font-bold mb-6 text-shadow-lg" style={{textShadow: "0 4px 8px rgba(0,0,0,0.5)"}}>
+        <ParallaxText speed={0.3} className="hero-title text-6xl md:text-8xl font-bold mb-6" style={{
+          textShadow: "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 4px 8px rgba(0,0,0,0.8)",
+          WebkitTextStroke: "1px black"
+        }}>
           Path
         </ParallaxText>
-        <ParallaxText speed={0.4} className="hero-subtitle text-xl md:text-2xl mb-8 opacity-90" style={{textShadow: "0 2px 4px rgba(0,0,0,0.5)"}}>
+        <ParallaxText speed={0.4} className="hero-subtitle text-xl md:text-2xl mb-8" style={{
+          textShadow: "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 2px 4px rgba(0,0,0,0.8)",
+          WebkitTextStroke: "0.5px black"
+        }}>
           Creative Website Design Agency
         </ParallaxText>
         <ParallaxText speed={0.6} className="hero-cta">
-          <button className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105 shadow-lg">
+          <button className="bg-black/40 backdrop-blur-sm border-2 border-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-black/60 transition-all duration-300 hover:scale-105 shadow-2xl" style={{
+            textShadow: "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
+          }}>
             Start Your Journey
           </button>
         </ParallaxText>
