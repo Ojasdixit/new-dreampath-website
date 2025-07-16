@@ -63,14 +63,13 @@ const Hero = () => {
         ref={videoRef}
         className="absolute inset-0 w-full h-[120%] -top-[10%]"
       >
-        <div style={{position:"relative", aspectRatio:"16/9", width: "100%", height: "100%"}}>
+        <div style={{position:"relative",aspectRatio:"16/9"}}>
           <iframe 
-            loading="lazy" 
-            title="Gumlet video player"
+            loading="lazy" title="Gumlet video player"
             src="https://play.gumlet.io/embed/6876857be448cc1c325fa72e?background=true&autoplay=true&loop=true&disableControls=true"
             style={{border:"none", position: "absolute", top: 0, left: 0, height: "100%", width: "100%"}}
-            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
-          />
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;">
+          </iframe>
         </div>
       </div>
 
