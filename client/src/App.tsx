@@ -54,7 +54,7 @@ function App() {
       ref={containerRef}
       className="relative w-full min-h-screen overflow-x-hidden"
       style={{
-        background: 'linear-gradient(135deg, #FFE4E1 0%, #FFCCCB 25%, #FFB6C1 50%, #FFC0CB 75%, #FFE4E1 100%)',
+        background: 'linear-gradient(135deg, #F0F8FF 0%, #E6F3FF 25%, #FFE4E1 50%, #FFF0F5 75%, #F8F8FF 100%)',
       }}
     >
       {/* Fixed Three.js Canvas for 3D effects */}
@@ -80,8 +80,9 @@ function App() {
             <MorphingGeometry />
             <InteractiveOrb />
             <DynamicLighting />
-            <ambientLight intensity={0.6} color="#FFE4E1" />
-            <directionalLight position={[15, 8, -25]} intensity={0.8} color="#FFDC94" />
+            <ambientLight intensity={0.7} color="#FFF8DC" />
+            <directionalLight position={[20, 12, -40]} intensity={1.2} color="#FFFACD" />
+            <directionalLight position={[-10, 5, -20]} intensity={0.4} color="#E6E6FA" />
           </Suspense>
         </Canvas>
       </div>
