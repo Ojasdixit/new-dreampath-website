@@ -47,8 +47,7 @@ const Contact = () => {
   };
 
   return (
-    <section
-      id="contact"
+    <div
       ref={contactRef}
       className="relative min-h-screen py-20 px-6"
     >
@@ -187,7 +186,7 @@ const Contact = () => {
           <p className="text-white/80">© 2024 DreamPath Creative Agency. All rights reserved.</p>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

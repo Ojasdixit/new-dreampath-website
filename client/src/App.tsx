@@ -11,6 +11,8 @@ import Services from "./components/Services";
 import Contact from "./components/Contact";
 import CloudParticles from "./components/CloudParticles";
 import ParallaxTransition from "./components/ParallaxTransition";
+import ScrollIndicator from "./components/ScrollIndicator";
+import { useSnapScroll } from "./hooks/useSnapScroll";
 
 
 // Register ScrollTrigger plugin
@@ -18,6 +20,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Enable snap scrolling
+  useSnapScroll();
 
   useEffect(() => {
     // Initialize smooth scrolling
@@ -79,13 +84,30 @@ function App() {
 
       {/* Main Content */}
       <main className="relative z-10">
-        <Hero />
+        <section id="hero" className="relative">
+          <Hero />
+          <ScrollIndicator nextSection="about" />
+        </section>
+        
         <ParallaxTransition variant="default" />
-        <About />
+        
+        <section id="about" className="relative">
+          <About />
+          <ScrollIndicator nextSection="services" />
+        </section>
+        
         <ParallaxTransition variant="blue" />
-        <Services />
+        
+        <section id="services" className="relative">
+          <Services />
+          <ScrollIndicator nextSection="contact" />
+        </section>
+        
         <ParallaxTransition variant="purple" />
-        <Contact />
+        
+        <section id="contact" className="relative">
+          <Contact />
+        </section>
       </main>
     </div>
   );

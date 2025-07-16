@@ -72,7 +72,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="min-h-screen py-20 relative overflow-hidden">
+    <div className="min-h-screen py-20 relative overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -144,7 +144,7 @@ const Services: React.FC = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

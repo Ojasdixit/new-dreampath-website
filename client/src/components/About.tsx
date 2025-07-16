@@ -41,8 +41,7 @@ const About = () => {
   }, []);
 
   return (
-    <section
-      id="about"
+    <div
       ref={aboutRef}
       className="relative min-h-screen py-20 px-6"
       style={{
@@ -116,7 +115,7 @@ const About = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
