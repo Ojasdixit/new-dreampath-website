@@ -79,26 +79,62 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
-        <ParallaxText speed={0.5} className="hero-title text-6xl md:text-8xl font-bold mb-6" style={{
+        <ParallaxText speed={0.5} className="hero-title text-4xl md:text-5xl font-bold mb-4" style={{
           textShadow: "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 4px 8px rgba(0,0,0,0.8)",
           WebkitTextStroke: "1px black"
         }}>
           Dream
         </ParallaxText>
-        <ParallaxText speed={0.3} className="hero-title text-6xl md:text-8xl font-bold mb-6" style={{
+        <ParallaxText speed={0.3} className="hero-title text-4xl md:text-5xl font-bold mb-4" style={{
           textShadow: "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 4px 8px rgba(0,0,0,0.8)",
           WebkitTextStroke: "1px black"
         }}>
           Path
         </ParallaxText>
-        <ParallaxText speed={0.4} className="hero-subtitle text-xl md:text-2xl mb-8" style={{
+        <ParallaxText speed={0.4} className="hero-subtitle text-lg md:text-xl mb-6" style={{
           textShadow: "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 2px 4px rgba(0,0,0,0.8)",
           WebkitTextStroke: "0.5px black"
         }}>
           Creative Website Design Agency
         </ParallaxText>
+        
+        {/* Rotating Companies */}
+        <div className="mb-6">
+          <div className="flex items-center justify-center space-x-6 overflow-hidden">
+            <div className="animate-scroll-loop flex space-x-8">
+              {["Figma", "Framer", "Dribbble", "Blender", "Three.js", "WebGL", "Spline", "Cinema 4D"].map((company, index) => (
+                <span 
+                  key={index}
+                  className="text-white/80 font-medium whitespace-nowrap"
+                  style={{
+                    fontSize: "20px",
+                    textShadow: "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
+                    WebkitTextStroke: "0.5px black"
+                  }}
+                >
+                  {company}
+                </span>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {["Figma", "Framer", "Dribbble", "Blender", "Three.js", "WebGL", "Spline", "Cinema 4D"].map((company, index) => (
+                <span 
+                  key={`duplicate-${index}`}
+                  className="text-white/80 font-medium whitespace-nowrap"
+                  style={{
+                    fontSize: "20px",
+                    textShadow: "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
+                    WebkitTextStroke: "0.5px black"
+                  }}
+                >
+                  {company}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <ParallaxText speed={0.6} className="hero-cta">
-          <button className="bg-black/40 backdrop-blur-sm border-2 border-black text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-black/60 transition-all duration-300 hover:scale-105 shadow-2xl" style={{
+          <button className="bg-black/40 backdrop-blur-sm border-2 border-black text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-black/60 transition-all duration-300 hover:scale-105 shadow-2xl" style={{
             textShadow: "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
           }}>
             Start Your Journey
