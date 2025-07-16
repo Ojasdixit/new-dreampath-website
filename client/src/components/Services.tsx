@@ -77,7 +77,7 @@ const Services: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/attached_assets/06061d35-5df8-4f3a-be8c-bc4dcf4a25cd (1)_1752684182262.jpeg')`
+          backgroundImage: `url('/images/services-bg.jpeg')`
         }}
       ></div>
       <div className="absolute inset-0 bg-black/30"></div>
