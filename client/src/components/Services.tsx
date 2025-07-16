@@ -89,17 +89,26 @@ const Services = () => {
     <section
       id="services"
       ref={servicesRef}
-      className="relative min-h-screen py-20 px-6 bg-gradient-to-br from-sky-100 to-blue-200"
+      className="relative min-h-screen py-20 px-6"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Hero Section */}
-        <div className="text-center mb-20">
-          <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold mb-6 text-gray-800">
-            Our Services
-          </ParallaxText>
-          <ParallaxText speed={0.4} className="text-xl max-w-3xl mx-auto text-gray-700">
-            We offer comprehensive digital solutions to help your business thrive in the digital landscape.
-          </ParallaxText>
+        {/* Hero Section with Image */}
+        <div className="relative mb-20 rounded-3xl overflow-hidden shadow-2xl">
+          <img 
+            src="/images/services-hero.jpg" 
+            alt="Digital Services Team" 
+            className="w-full h-96 object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+            <div className="text-center text-white">
+              <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold mb-6">
+                Our Services
+              </ParallaxText>
+              <ParallaxText speed={0.4} className="text-xl max-w-3xl mx-auto">
+                We offer comprehensive digital solutions to help your business thrive in the digital landscape.
+              </ParallaxText>
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -139,6 +148,8 @@ const Services = () => {
             </div>
           ))}
         </div>
+
+
       </div>
     </section>
   );
