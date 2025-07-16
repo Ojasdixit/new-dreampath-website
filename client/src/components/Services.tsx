@@ -149,15 +149,7 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <ParallaxText speed={0.5} className="text-2xl text-black mb-8">
-            Ready to start your project?
-          </ParallaxText>
-          <button className="bg-black/20 backdrop-blur-sm border border-black/30 text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-black/30 transition-all duration-300 hover:scale-105">
-            Get Started Today
-          </button>
-        </div>
+
       </div>
     </section>
   );
