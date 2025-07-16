@@ -78,22 +78,14 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-blue-400/20 via-transparent to-blue-500/30"></div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
+      <div className="relative z-10 text-left text-white max-w-4xl mx-auto px-6 ml-8">
         <ParallaxText speed={0.5} className="hero-title text-4xl md:text-5xl font-bold mb-4" style={{
-          textShadow: "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 4px 8px rgba(0,0,0,0.8)",
-          WebkitTextStroke: "1px black"
+          textShadow: "0 4px 8px rgba(0,0,0,0.5)"
         }}>
-          Dream
-        </ParallaxText>
-        <ParallaxText speed={0.3} className="hero-title text-4xl md:text-5xl font-bold mb-4" style={{
-          textShadow: "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0 4px 8px rgba(0,0,0,0.8)",
-          WebkitTextStroke: "1px black"
-        }}>
-          Path
+          DreamPath
         </ParallaxText>
         <ParallaxText speed={0.4} className="hero-subtitle text-lg md:text-xl mb-6" style={{
-          textShadow: "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 2px 4px rgba(0,0,0,0.8)",
-          WebkitTextStroke: "0.5px black"
+          textShadow: "0 2px 4px rgba(0,0,0,0.5)"
         }}>
           Creative Website Design Agency
         </ParallaxText>
@@ -218,8 +210,8 @@ const Hero = () => {
         </div>
 
         <ParallaxText speed={0.6} className="hero-cta">
-          <button className="bg-black/40 backdrop-blur-sm border-2 border-black text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-black/60 transition-all duration-300 hover:scale-105 shadow-2xl" style={{
-            textShadow: "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
+          <button className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-110 shadow-lg animate-pulse" style={{
+            textShadow: "0 2px 4px rgba(0,0,0,0.5)"
           }}>
             Start Your Journey
           </button>
