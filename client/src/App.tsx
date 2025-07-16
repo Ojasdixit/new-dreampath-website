@@ -10,6 +10,7 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import CloudParticles from "./components/CloudParticles";
+import ParallaxTransition from "./components/ParallaxTransition";
 
 
 // Register ScrollTrigger plugin
@@ -79,6 +80,7 @@ function App() {
       {/* Main Content */}
       <main className="relative z-10">
         <Hero />
+        <ParallaxTransition />
         <About />
         <Services />
         <Contact />

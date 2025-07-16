@@ -73,7 +73,14 @@ const Services: React.FC = () => {
 
   return (
     <section id="services" className="min-h-screen py-20 relative overflow-hidden">
-      {/* Removed background - now floating on main background */}
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('/attached_assets/06061d35-5df8-4f3a-be8c-bc4dcf4a25cd (1)_1752684182262.jpeg')`
+        }}
+      ></div>
+      <div className="absolute inset-0 bg-black/30"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
