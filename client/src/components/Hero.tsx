@@ -63,37 +63,33 @@ const Hero = () => {
         ref={videoRef}
         className="absolute inset-0 w-full h-[120%] -top-[10%]"
       >
-        <iframe
-          src="https://player.gumlet.io/embed/674e4d9a4c9b9b09c7c4c2b4"
-          className="w-full h-full object-cover"
-          style={{
-            border: 'none',
-            borderRadius: '0px',
-            minHeight: '100%',
-            minWidth: '100%'
-          }}
-          allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-          allowFullScreen
-          loading="lazy"
-        />
+        <div style={{position:"relative", aspectRatio:"16/9", width: "100%", height: "100%"}}>
+          <iframe 
+            loading="lazy" 
+            title="Gumlet video player"
+            src="https://play.gumlet.io/embed/6876857be448cc1c325fa72e?background=true&autoplay=true&loop=true&disableControls=true"
+            style={{border:"none", position: "absolute", top: 0, left: 0, height: "100%", width: "100%"}}
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
+          />
+        </div>
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-400/20 via-transparent to-blue-500/30"></div>
 
       {/* Content */}
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
-        <ParallaxText speed={0.5} className="hero-title text-6xl md:text-8xl font-bold mb-6">
+        <ParallaxText speed={0.5} className="hero-title text-6xl md:text-8xl font-bold mb-6 text-shadow-lg" style={{textShadow: "0 4px 8px rgba(0,0,0,0.5)"}}>
           Dream
         </ParallaxText>
-        <ParallaxText speed={0.3} className="hero-title text-6xl md:text-8xl font-bold mb-6">
+        <ParallaxText speed={0.3} className="hero-title text-6xl md:text-8xl font-bold mb-6 text-shadow-lg" style={{textShadow: "0 4px 8px rgba(0,0,0,0.5)"}}>
           Path
         </ParallaxText>
-        <ParallaxText speed={0.4} className="hero-subtitle text-xl md:text-2xl mb-8 opacity-90">
-          Creating Digital Dreams Through Creative Design
+        <ParallaxText speed={0.4} className="hero-subtitle text-xl md:text-2xl mb-8 opacity-90" style={{textShadow: "0 2px 4px rgba(0,0,0,0.5)"}}>
+          Creative Website Design Agency
         </ParallaxText>
         <ParallaxText speed={0.6} className="hero-cta">
-          <button className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105">
+          <button className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105 shadow-lg">
             Start Your Journey
           </button>
         </ParallaxText>

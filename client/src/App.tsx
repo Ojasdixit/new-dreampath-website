@@ -43,7 +43,7 @@ function App() {
       ref={containerRef}
       className="relative w-full min-h-screen overflow-x-hidden"
       style={{
-        background: 'linear-gradient(135deg, #87CEEB 0%, #E0F6FF 50%, #87CEEB 100%)',
+        background: 'linear-gradient(135deg, #87CEEB 0%, #B6E5F7 25%, #E0F6FF 50%, #B6E5F7 75%, #87CEEB 100%)',
       }}
     >
       {/* Fixed Three.js Canvas for 3D effects */}
