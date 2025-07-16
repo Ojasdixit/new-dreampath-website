@@ -99,7 +99,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300"
+              className="service-card bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/30 hover:border-white/50 transition-all duration-300 shadow-lg"
             >
               <div className="text-4xl mb-6">{service.icon}</div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
@@ -116,7 +116,7 @@ const Services = () => {
           <ParallaxText speed={0.5} className="text-2xl text-gray-800 mb-8">
             Ready to start your project?
           </ParallaxText>
-          <button className="bg-gray-900/20 backdrop-blur-sm border border-gray-900/30 text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900/30 transition-all duration-300 hover:scale-105">
+          <button className="bg-white/80 backdrop-blur-sm border border-white/50 text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-lg">
             Get Started Today
           </button>
         </div>
