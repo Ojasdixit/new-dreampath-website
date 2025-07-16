@@ -48,34 +48,34 @@ const Services = () => {
 
   const services = [
     {
+      title: "Web Development",
+      description: "Full-stack web development using modern technologies to build powerful, scalable applications.",
+      icon: "⚡"
+    },
+    {
       title: "Web Design",
       description: "Creating stunning, responsive websites that captivate and convert visitors into customers.",
       icon: "🎨"
     },
     {
-      title: "Brand Identity",
-      description: "Developing unique brand identities that tell your story and connect with your audience.",
-      icon: "✨"
-    },
-    {
-      title: "Digital Marketing",
-      description: "Strategic digital marketing solutions to grow your online presence and reach.",
+      title: "Mobile App Development",
+      description: "Native and cross-platform mobile applications that engage users on any device.",
       icon: "📱"
     },
     {
-      title: "E-commerce",
-      description: "Building powerful online stores that drive sales and enhance customer experience.",
-      icon: "🛍️"
+      title: "3D Designs & Models",
+      description: "Creating immersive 3D experiences, models, and interactive visualizations for your projects.",
+      icon: "🎯"
     },
     {
-      title: "Mobile Apps",
-      description: "Native and cross-platform mobile applications that engage users on any device.",
-      icon: "📲"
+      title: "Agency Websites",
+      description: "Specialized websites for agencies with portfolio showcases, client management, and lead generation.",
+      icon: "🏢"
     },
     {
-      title: "SEO Optimization",
-      description: "Optimizing your digital presence to rank higher and attract more organic traffic.",
-      icon: "🔍"
+      title: "Digital Strategy",
+      description: "Comprehensive digital strategies to help your business thrive in the digital landscape.",
+      icon: "🚀"
     }
   ];
 
