@@ -72,11 +72,8 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="min-h-screen py-20 relative overflow-hidden bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
-      </div>
+    <section id="services" className="min-h-screen py-20 relative overflow-hidden">
+      {/* Removed background - now floating on main background */}
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
