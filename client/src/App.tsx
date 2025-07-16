@@ -3,48 +3,42 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "@fontsource/inter";
-import Navigation from "./components/Navigation";
-import Hero from "./components/Hero";
-import About from "./components/About";
 
-import Services from "./components/Services";
-import Contact from "./components/Contact";
+import Navigation from "./components/Navigation";
 import CloudParticles from "./components/CloudParticles";
-import ParallaxTransition from "./components/ParallaxTransition";
-import ScrollIndicator from "./components/ScrollIndicator";
 import { useSnapScroll } from "./hooks/useSnapScroll";
 
+// Import Pages
+import HomePage from "./pages/HomePage";
+import ContactPage from "./pages/ContactPage";
+import RefundPolicyPage from "./pages/RefundPolicyPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import ServiceDetailPage from "./pages/ServiceDetailPage";
+import Chatbox from "./components/Chatbox";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
   
-  // Enable snap scrolling
-  useSnapScroll();
+  // Enable snap scrolling only on the home page
+  useSnapScroll(location.pathname === '/');
 
   useEffect(() => {
-    // Initialize smooth scrolling
-    const ctx = gsap.context(() => {
-      // Smooth scroll setup
-      gsap.to(containerRef.current, {
-        duration: 1,
-        ease: "power2.out"
-      });
+    // Scroll to top on page change
+    window.scrollTo(0, 0);
 
-      // Refresh ScrollTrigger on window resize
-      const handleResize = () => {
-        ScrollTrigger.refresh();
-      };
+    // Refresh ScrollTrigger to recalculate positions
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100); // Delay to allow DOM to update
 
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   return (
     <div 
@@ -83,33 +77,17 @@ function App() {
       {/* Navigation */}
       <Navigation />
 
-      {/* Main Content */}
-      <main className="relative z-10">
-        <section id="hero" className="relative">
-          <Hero />
-          <ScrollIndicator nextSection="about" />
-        </section>
-        
-        <ParallaxTransition variant="default" />
-        
-        <section id="about" className="relative">
-          <About />
-          <ScrollIndicator nextSection="services" />
-        </section>
-        
-        <ParallaxTransition variant="blue" />
-        
-        <section id="services" className="relative">
-          <Services />
-          <ScrollIndicator nextSection="contact" />
-        </section>
-        
-        <ParallaxTransition variant="purple" />
-        
-        <section id="contact" className="relative">
-          <Contact />
-        </section>
-      </main>
+      {/* Page Content */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact-us" element={<ContactPage />} />
+        <Route path="/refund-policy" element={<RefundPolicyPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/services/:slug" element={<ServiceDetailPage />} />
+      </Routes>
+
+      {/* Chatbox */} 
+      <Chatbox />
     </div>
   );
 }
