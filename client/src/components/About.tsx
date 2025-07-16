@@ -45,20 +45,27 @@ const About = () => {
       id="about"
       ref={aboutRef}
       className="relative min-h-screen py-20 px-6"
+      style={{
+        backgroundImage: 'url(/images/about-background.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <ParallaxText speed={0.3} className="about-content text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          <ParallaxText speed={0.3} className="about-content text-5xl md:text-6xl font-bold text-white mb-6">
             About DreamPath
           </ParallaxText>
-          <ParallaxText speed={0.4} className="about-content text-xl text-gray-800 max-w-3xl mx-auto">
+          <ParallaxText speed={0.4} className="about-content text-xl text-white/90 max-w-3xl mx-auto">
             We are a creative design agency that transforms ideas into stunning digital experiences. 
             Our team of dreamers and creators craft unique solutions that elevate brands to new heights.
           </ParallaxText>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-          <div className="about-content">
+          <div className="about-content bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
             <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Vision</h3>
             <p className="text-gray-800 text-lg leading-relaxed mb-6">
               At DreamPath, we believe in the power of creativity to transform businesses and inspire audiences. 
@@ -113,7 +120,7 @@ const About = () => {
             { number: "5+", label: "Years Experience" },
             { number: "24/7", label: "Support Available" }
           ].map((stat, index) => (
-            <div key={index} className="stat-item text-center">
+            <div key={index} className="stat-item text-center bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg">
               <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{stat.number}</div>
               <div className="text-gray-700">{stat.label}</div>
             </div>
