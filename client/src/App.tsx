@@ -1,3 +1,4 @@
+import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useRef } from "react";
 import { gsap } from "gsap";

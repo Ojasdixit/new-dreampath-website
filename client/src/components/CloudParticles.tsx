@@ -1,6 +1,13 @@
-import { useRef, useMemo } from "react";
+import React, { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+
+interface CloudData {
+  position: [number, number, number];
+  scale: number;
+  rotation: number;
+  speed: number;
+}
 
 const CloudParticles = () => {
   const groupRef = useRef<THREE.Group>(null);
@@ -8,7 +15,7 @@ const CloudParticles = () => {
   // Generate cloud shapes
   const clouds = useMemo(() => {
     const cloudCount = 8;
-    const cloudData = [];
+    const cloudData: CloudData[] = [];
     
     for (let i = 0; i < cloudCount; i++) {
       // Position clouds in sky

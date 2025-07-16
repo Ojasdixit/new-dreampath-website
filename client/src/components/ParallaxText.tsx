@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -6,12 +6,14 @@ interface ParallaxTextProps {
   children: React.ReactNode;
   speed?: number;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 const ParallaxText: React.FC<ParallaxTextProps> = ({ 
   children, 
   speed = 0.5, 
-  className = "" 
+  className = "",
+  style
 }) => {
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -36,7 +38,7 @@ const ParallaxText: React.FC<ParallaxTextProps> = ({
   }, [speed]);
 
   return (
-    <div ref={textRef} className={className}>
+    <div ref={textRef} className={className} style={style}>
       {children}
     </div>
   );
