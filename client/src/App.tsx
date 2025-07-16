@@ -80,9 +80,11 @@ function App() {
       {/* Main Content */}
       <main className="relative z-10">
         <Hero />
-        <ParallaxTransition />
+        <ParallaxTransition variant="default" />
         <About />
+        <ParallaxTransition variant="blue" />
         <Services />
+        <ParallaxTransition variant="purple" />
         <Contact />
       </main>
     </div>
