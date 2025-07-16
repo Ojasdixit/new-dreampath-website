@@ -97,10 +97,22 @@ const Hero = () => {
 
 
         <ParallaxText speed={0.6} className="hero-cta">
-          <button className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-white/30 transition-all duration-500 hover:scale-105 shadow-lg animate-float" style={{
-            textShadow: "0 2px 4px rgba(0,0,0,0.5)"
-          }}>
-            Start Your Journey
+          <button 
+            className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/40 transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer" 
+            style={{
+              textShadow: "0 2px 4px rgba(0,0,0,0.5)"
+            }}
+            onClick={() => {
+              document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            onMouseEnter={(e) => {
+              gsap.to(e.target, { duration: 0.3, scale: 1.1, ease: "back.out(1.7)" });
+            }}
+            onMouseLeave={(e) => {
+              gsap.to(e.target, { duration: 0.3, scale: 1, ease: "back.out(1.7)" });
+            }}
+          >
+            Start Your Journey ✨
           </button>
         </ParallaxText>
       </div>

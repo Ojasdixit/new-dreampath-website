@@ -1,5 +1,6 @@
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
+import { gsap } from "gsap";
 import * as THREE from "three";
 
 const FloatingElements = () => {
@@ -8,7 +9,7 @@ const FloatingElements = () => {
   // Generate floating geometric shapes
   const elements = useMemo(() => {
     const shapes = [];
-    const shapeCount = 12;
+    const shapeCount = 6;
     
     for (let i = 0; i < shapeCount; i++) {
       const x = (Math.random() - 0.5) * 80;
@@ -52,13 +53,13 @@ const FloatingElements = () => {
     }
   });
 
-  const renderShape = (type: number, color: string) => {
+  const renderShape = (type: number, color: string, index: number) => {
     const material = (
-      <meshLambertMaterial 
+      <meshPhongMaterial 
         color={color} 
         transparent 
-        opacity={0.6}
-        wireframe={Math.random() > 0.7}
+        opacity={0.7}
+        shininess={50}
       />
     );
 
@@ -110,7 +111,44 @@ const FloatingElements = () => {
           scale={element.scale}
           rotation={element.rotation}
         >
-          {renderShape(element.type, element.color)}
+          <mesh
+            onClick={() => {
+              // Spin effect on click
+              if (groupRef.current?.children[index]) {
+                gsap.to(groupRef.current.children[index].rotation, {
+                  duration: 1,
+                  x: "+=6.28",
+                  ease: "back.out(1.7)"
+                });
+              }
+            }}
+            onPointerEnter={() => {
+              document.body.style.cursor = 'pointer';
+              // Scale up on hover
+              if (groupRef.current?.children[index]) {
+                gsap.to(groupRef.current.children[index].scale, {
+                  duration: 0.3,
+                  x: element.scale * 1.3,
+                  y: element.scale * 1.3,
+                  z: element.scale * 1.3
+                });
+              }
+            }}
+            onPointerLeave={() => {
+              document.body.style.cursor = 'default';
+              // Scale back down
+              if (groupRef.current?.children[index]) {
+                gsap.to(groupRef.current.children[index].scale, {
+                  duration: 0.3,
+                  x: element.scale,
+                  y: element.scale,
+                  z: element.scale
+                });
+              }
+            }}
+          >
+            {renderShape(element.type, element.color, index)}
+          </mesh>
         </group>
       ))}
     </group>

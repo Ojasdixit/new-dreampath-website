@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
+import { gsap } from "gsap";
 import * as THREE from "three";
 
 const MorphingGeometry = () => {
@@ -71,14 +72,32 @@ const MorphingGeometry = () => {
   });
 
   return (
-    <mesh ref={meshRef} position={[-8, 5, 8]} scale={1.5}>
-      <icosahedronGeometry args={[2, 4]} />
+    <mesh
+      ref={meshRef} 
+      position={[-8, 5, 8]} 
+      scale={1.5}
+      onClick={() => {
+        if (meshRef.current) {
+          // Create click ripple effect
+          const tl = gsap.timeline();
+          tl.to(meshRef.current.scale, { duration: 0.2, x: 2, y: 2, z: 2 })
+            .to(meshRef.current.scale, { duration: 0.3, x: 1.5, y: 1.5, z: 1.5 });
+        }
+      }}
+      onPointerEnter={() => {
+        document.body.style.cursor = 'pointer';
+      }}
+      onPointerLeave={() => {
+        document.body.style.cursor = 'default';
+      }}
+    >
+      <icosahedronGeometry args={[2, 2]} />
       <meshPhongMaterial
         color="#87CEEB"
         transparent
-        opacity={0.4}
-        wireframe
-        side={THREE.DoubleSide}
+        opacity={0.6}
+        wireframe={false}
+        shininess={100}
       />
     </mesh>
   );

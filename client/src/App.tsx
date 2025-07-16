@@ -17,6 +17,7 @@ import ScrollParticles from "./components/ScrollParticles";
 import ParticleField from "./components/ParticleField";
 import MorphingGeometry from "./components/MorphingGeometry";
 import DynamicLighting from "./components/DynamicLighting";
+import InteractiveFeedback from "./components/InteractiveFeedback";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -69,8 +70,7 @@ function App() {
         >
           <Suspense fallback={null}>
             <AnimatedBackground />
-            <ScrollParticles />
-            <ParticleField count={300} size={1.5} speed={0.002} color="#B6E5F7" />
+            <ParticleField count={100} size={0.8} speed={0.001} color="#E0F6FF" />
             <CloudParticles />
             <FloatingElements />
             <MorphingGeometry />
@@ -83,6 +83,9 @@ function App() {
 
       {/* Navigation */}
       <Navigation />
+
+      {/* Interactive Feedback */}
+      <InteractiveFeedback />
 
       {/* Main Content */}
       <main className="relative z-10">

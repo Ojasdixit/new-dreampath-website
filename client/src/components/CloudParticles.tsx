@@ -7,7 +7,7 @@ const CloudParticles = () => {
   
   // Generate cloud shapes
   const clouds = useMemo(() => {
-    const cloudCount = 8;
+    const cloudCount = 4;
     const cloudData = [];
     
     for (let i = 0; i < cloudCount; i++) {
@@ -52,7 +52,7 @@ const CloudParticles = () => {
             <meshBasicMaterial 
               color="#ffffff" 
               transparent 
-              opacity={0.6}
+              opacity={0.3}
               fog={false}
             />
           </mesh>

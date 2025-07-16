@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
+import { gsap } from "gsap";
 import * as THREE from "three";
 
 const InteractiveOrb = () => {
@@ -41,18 +42,30 @@ const InteractiveOrb = () => {
     <mesh
       ref={orbRef}
       position={[5, 2, 5]}
-      onPointerEnter={() => setHovered(true)}
-      onPointerLeave={() => setHovered(false)}
+      onPointerEnter={() => {
+        setHovered(true);
+        document.body.style.cursor = 'pointer';
+      }}
+      onPointerLeave={() => {
+        setHovered(false);
+        document.body.style.cursor = 'default';
+      }}
       onPointerMove={handlePointerMove}
+      onClick={() => {
+        // Create explosion effect
+        if (orbRef.current) {
+          gsap.to(orbRef.current.rotation, { duration: 1, x: "+=6.28", y: "+=6.28" });
+        }
+      }}
     >
       <icosahedronGeometry args={[2, 1]} />
       <meshPhongMaterial 
         color={hovered ? "#ffffff" : "#B6E5F7"}
         transparent
-        opacity={0.8}
+        opacity={hovered ? 1 : 0.8}
         shininess={100}
         emissive={hovered ? "#87CEEB" : "#000000"}
-        emissiveIntensity={hovered ? 0.2 : 0}
+        emissiveIntensity={hovered ? 0.3 : 0}
       />
     </mesh>
   );

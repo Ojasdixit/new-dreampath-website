@@ -30,13 +30,13 @@ const AnimatedBackground = () => {
   });
 
   return (
-    <mesh ref={meshRef} position={[0, 0, -20]} rotation={[-0.2, 0, 0]}>
-      <planeGeometry args={[100, 100, 50, 50]} />
+    <mesh ref={meshRef} position={[0, 0, -30]} rotation={[-0.2, 0, 0]}>
+      <planeGeometry args={[200, 200, 20, 20]} />
       <meshLambertMaterial 
-        color="#87CEEB"
+        color="#E0F6FF"
         transparent
-        opacity={0.1}
-        wireframe
+        opacity={0.03}
+        wireframe={false}
       />
     </mesh>
   );
