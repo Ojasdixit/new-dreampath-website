@@ -87,10 +87,10 @@ const Portfolio = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Our Work
           </ParallaxText>
-          <ParallaxText speed={0.4} className="text-xl text-white/90 max-w-3xl mx-auto">
+          <ParallaxText speed={0.4} className="text-xl text-gray-800 max-w-3xl mx-auto">
             Explore our portfolio of successful projects and see how we've helped businesses achieve their digital dreams.
           </ParallaxText>
         </div>
@@ -117,9 +117,9 @@ const Portfolio = () => {
               </div>
 
               <div className="p-6">
-                <div className="text-sm text-white/60 mb-2">{item.category}</div>
-                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-white/90 text-sm leading-relaxed">{item.description}</p>
+                <div className="text-sm text-gray-600 mb-2">{item.category}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-800 text-sm leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))}
@@ -127,7 +127,7 @@ const Portfolio = () => {
 
         {/* View More Button */}
         <div className="text-center mt-16">
-          <button className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105">
+          <button className="bg-gray-900/20 backdrop-blur-sm border border-gray-900/30 text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900/30 transition-all duration-300 hover:scale-105">
             View All Projects
           </button>
         </div>

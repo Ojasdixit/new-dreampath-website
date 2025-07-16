@@ -87,10 +87,10 @@ const Services = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Our Services
           </ParallaxText>
-          <ParallaxText speed={0.4} className="text-xl text-white/90 max-w-3xl mx-auto">
+          <ParallaxText speed={0.4} className="text-xl text-gray-800 max-w-3xl mx-auto">
             We offer comprehensive digital solutions to help your business thrive in the digital landscape.
           </ParallaxText>
         </div>
@@ -102,9 +102,9 @@ const Services = () => {
               className="service-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300"
             >
               <div className="text-4xl mb-6">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-              <p className="text-white/90 leading-relaxed">{service.description}</p>
-              <button className="mt-6 text-white/80 hover:text-white transition-colors font-medium">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+              <p className="text-gray-800 leading-relaxed">{service.description}</p>
+              <button className="mt-6 text-gray-700 hover:text-gray-900 transition-colors font-medium">
                 Learn More →
               </button>
             </div>
@@ -113,10 +113,10 @@ const Services = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <ParallaxText speed={0.5} className="text-2xl text-white/90 mb-8">
+          <ParallaxText speed={0.5} className="text-2xl text-gray-800 mb-8">
             Ready to start your project?
           </ParallaxText>
-          <button className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105">
+          <button className="bg-gray-900/20 backdrop-blur-sm border border-gray-900/30 text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900/30 transition-all duration-300 hover:scale-105">
             Get Started Today
           </button>
         </div>
