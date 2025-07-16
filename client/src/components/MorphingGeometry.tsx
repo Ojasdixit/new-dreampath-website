@@ -93,11 +93,13 @@ const MorphingGeometry = () => {
     >
       <icosahedronGeometry args={[2, 2]} />
       <meshPhongMaterial
-        color="#87CEEB"
+        color="#FFB6C1"
         transparent
-        opacity={0.6}
+        opacity={0.7}
         wireframe={false}
         shininess={100}
+        emissive="#FFC0CB"
+        emissiveIntensity={0.1}
       />
     </mesh>
   );

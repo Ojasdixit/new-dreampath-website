@@ -54,12 +54,15 @@ const FloatingElements = () => {
   });
 
   const renderShape = (type: number, color: string, index: number) => {
+    const cherryColors = ["#FFB6C1", "#FFC0CB", "#FFCCCB", "#FFE4E1"];
+    const actualColor = cherryColors[index % cherryColors.length];
+    
     const material = (
       <meshPhongMaterial 
-        color={color} 
+        color={actualColor} 
         transparent 
-        opacity={0.7}
-        shininess={50}
+        opacity={0.8}
+        shininess={80}
       />
     );
 

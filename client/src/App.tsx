@@ -18,6 +18,9 @@ import ParticleField from "./components/ParticleField";
 import MorphingGeometry from "./components/MorphingGeometry";
 import DynamicLighting from "./components/DynamicLighting";
 import InteractiveFeedback from "./components/InteractiveFeedback";
+import CherryBlossomSun from "./components/CherryBlossomSun";
+import CherryBlossomTrees from "./components/CherryBlossomTrees";
+import FallingPetals from "./components/FallingPetals";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -51,7 +54,7 @@ function App() {
       ref={containerRef}
       className="relative w-full min-h-screen overflow-x-hidden"
       style={{
-        background: 'linear-gradient(135deg, #87CEEB 0%, #B6E5F7 25%, #E0F6FF 50%, #B6E5F7 75%, #87CEEB 100%)',
+        background: 'linear-gradient(135deg, #FFE4E1 0%, #FFCCCB 25%, #FFB6C1 50%, #FFC0CB 75%, #FFE4E1 100%)',
       }}
     >
       {/* Fixed Three.js Canvas for 3D effects */}
@@ -69,14 +72,16 @@ function App() {
           }}
         >
           <Suspense fallback={null}>
-            <AnimatedBackground />
-            <ParticleField count={100} size={0.8} speed={0.001} color="#E0F6FF" />
-            <CloudParticles />
+            <CherryBlossomSun />
+            <CherryBlossomTrees />
+            <FallingPetals />
+            <ParticleField count={50} size={0.6} speed={0.001} color="#FFE4E1" />
             <FloatingElements />
             <MorphingGeometry />
             <InteractiveOrb />
             <DynamicLighting />
-            <ambientLight intensity={0.4} />
+            <ambientLight intensity={0.6} color="#FFE4E1" />
+            <directionalLight position={[15, 8, -25]} intensity={0.8} color="#FFDC94" />
           </Suspense>
         </Canvas>
       </div>

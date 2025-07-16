@@ -60,12 +60,12 @@ const InteractiveOrb = () => {
     >
       <icosahedronGeometry args={[2, 1]} />
       <meshPhongMaterial 
-        color={hovered ? "#ffffff" : "#B6E5F7"}
+        color={hovered ? "#ffffff" : "#FFB6C1"}
         transparent
         opacity={hovered ? 1 : 0.8}
         shininess={100}
-        emissive={hovered ? "#87CEEB" : "#000000"}
-        emissiveIntensity={hovered ? 0.3 : 0}
+        emissive={hovered ? "#FFC0CB" : "#FFE4E1"}
+        emissiveIntensity={hovered ? 0.4 : 0.1}
       />
     </mesh>
   );
