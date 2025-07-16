@@ -7,7 +7,6 @@ import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Services from "./components/Services";
-import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import CloudParticles from "./components/CloudParticles";
 
@@ -80,7 +79,6 @@ function App() {
         <Hero />
         <About />
         <Services />
-        <Portfolio />
         <Contact />
       </main>
     </div>
