@@ -10,6 +10,7 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import CloudParticles from "./components/CloudParticles";
+import SectionTransition from "./components/SectionTransition";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -78,8 +79,11 @@ function App() {
       {/* Main Content */}
       <main className="relative z-10">
         <Hero />
+        <SectionTransition />
         <About />
+        <SectionTransition />
         <Services />
+        <SectionTransition />
         <Contact />
       </main>
     </div>
