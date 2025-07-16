@@ -95,8 +95,8 @@
 }
 
 @keyframes radialSpin {
-  0% { transform: rotateZ(0deg) translateX(140px) rotateZ(0deg); }
-  100% { transform: rotateZ(360deg) translateX(140px) rotateZ(-360deg); }
+  0% { transform: rotateY(0deg) translateX(120px) rotateY(0deg); }
+  100% { transform: rotateY(360deg) translateX(120px) rotateY(-360deg); }
 }
 
 .logo-3d {
