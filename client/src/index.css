@@ -94,6 +94,16 @@
   animation: scroll-loop 15s linear infinite;
 }
 
+@keyframes radialSpin {
+  0% { transform: rotateZ(0deg) translateX(140px) rotateZ(0deg); }
+  100% { transform: rotateZ(360deg) translateX(140px) rotateZ(-360deg); }
+}
+
+.logo-3d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
 /* Performance optimizations */
 .gpu-accelerated {
   transform: translateZ(0);
