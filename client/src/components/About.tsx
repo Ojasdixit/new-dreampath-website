@@ -73,22 +73,22 @@ const About = () => {
 
           <div className="about-content">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-3xl font-bold text-white mb-6">Our Approach</h3>
-              <ul className="space-y-4 text-white/90">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Approach</h3>
+              <ul className="space-y-4 text-gray-800">
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
+                  <span className="w-2 h-2 bg-gray-800 rounded-full mr-3"></span>
                   Creative strategy and brand positioning
                 </li>
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
+                  <span className="w-2 h-2 bg-gray-800 rounded-full mr-3"></span>
                   User-centered design methodology
                 </li>
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
+                  <span className="w-2 h-2 bg-gray-800 rounded-full mr-3"></span>
                   Cutting-edge technology integration
                 </li>
                 <li className="flex items-center">
-                  <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
+                  <span className="w-2 h-2 bg-gray-800 rounded-full mr-3"></span>
                   Continuous collaboration and feedback
                 </li>
               </ul>
@@ -105,8 +105,8 @@ const About = () => {
             { number: "24/7", label: "Support Available" }
           ].map((stat, index) => (
             <div key={index} className="stat-item text-center">
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.number}</div>
-              <div className="text-white/80">{stat.label}</div>
+              <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">{stat.number}</div>
+              <div className="text-gray-700">{stat.label}</div>
             </div>
           ))}
         </div>
