@@ -10,6 +10,13 @@ import Services from "./components/Services";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import CloudParticles from "./components/CloudParticles";
+import FloatingElements from "./components/FloatingElements";
+import AnimatedBackground from "./components/AnimatedBackground";
+import InteractiveOrb from "./components/InteractiveOrb";
+import ScrollParticles from "./components/ScrollParticles";
+import ParticleField from "./components/ParticleField";
+import MorphingGeometry from "./components/MorphingGeometry";
+import DynamicLighting from "./components/DynamicLighting";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -61,13 +68,15 @@ function App() {
           }}
         >
           <Suspense fallback={null}>
+            <AnimatedBackground />
+            <ScrollParticles />
+            <ParticleField count={300} size={1.5} speed={0.002} color="#B6E5F7" />
             <CloudParticles />
-            <ambientLight intensity={0.6} />
-            <directionalLight 
-              position={[10, 10, 5]} 
-              intensity={0.4}
-              color="#ffffff"
-            />
+            <FloatingElements />
+            <MorphingGeometry />
+            <InteractiveOrb />
+            <DynamicLighting />
+            <ambientLight intensity={0.4} />
           </Suspense>
         </Canvas>
       </div>

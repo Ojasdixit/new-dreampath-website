@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ParallaxText from "./ParallaxText";
+import LetterReveal from "./LetterReveal";
+import TypewriterText from "./TypewriterText";
 
 const About = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -48,12 +50,20 @@ const About = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <ParallaxText speed={0.3} className="about-content text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+          <LetterReveal 
+            trigger="#about"
+            className="about-content text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+            stagger={0.05}
+            duration={1}
+          >
             About DreamPath
-          </ParallaxText>
+          </LetterReveal>
           <ParallaxText speed={0.4} className="about-content text-xl text-gray-800 max-w-3xl mx-auto">
-            We are a creative design agency that transforms ideas into stunning digital experiences. 
-            Our team of dreamers and creators craft unique solutions that elevate brands to new heights.
+            <TypewriterText 
+              text="We are a creative design agency that transforms ideas into stunning digital experiences. Our team of dreamers and creators craft unique solutions that elevate brands to new heights."
+              speed={0.02}
+              delay={1.5}
+            />
           </ParallaxText>
         </div>
 
