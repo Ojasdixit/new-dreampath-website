@@ -86,20 +86,30 @@ const Services = () => {
       className="relative min-h-screen py-20 px-6"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold text-black mb-6">
-            Our Services
-          </ParallaxText>
-          <ParallaxText speed={0.4} className="text-xl text-black max-w-3xl mx-auto">
-            We offer comprehensive digital solutions to help your business thrive in the digital landscape.
-          </ParallaxText>
+        {/* Hero Section with Image */}
+        <div className="relative mb-20 rounded-3xl overflow-hidden shadow-2xl">
+          <img 
+            src="/images/services-hero.jpg" 
+            alt="Digital Services Team" 
+            className="w-full h-96 object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+            <div className="text-center text-white">
+              <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold mb-6">
+                Our Services
+              </ParallaxText>
+              <ParallaxText speed={0.4} className="text-xl max-w-3xl mx-auto">
+                We offer comprehensive digital solutions to help your business thrive in the digital landscape.
+              </ParallaxText>
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card bg-black/20 backdrop-blur-sm rounded-2xl p-8 border border-black/30 hover:border-black/50 transition-all duration-300"
+              className="service-card bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-white/30 hover:border-white/50 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <div className="text-4xl mb-6">{service.icon}</div>
               <h3 className="text-2xl font-bold text-black mb-4">{service.title}</h3>
