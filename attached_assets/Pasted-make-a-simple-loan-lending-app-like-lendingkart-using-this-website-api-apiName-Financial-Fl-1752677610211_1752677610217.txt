@@ -1,0 +1,246 @@
+make a simple loan lending app like lendingkart using this website api {
+  "apiName": "Financial Flow India REST API",
+  "baseUrl": "https://f974d827-58f7-421b-87ea-0e00d3cfc36d-00-2jcmsaq11amo7.pike.replit.dev/api",
+  "authentication": "session-based with cookies",
+  "contentType": "application/json",
+  "endpoints": [
+    {
+      "name": "Health Check",
+      "method": "GET",
+      "path": "/health",
+      "description": "Check server status",
+      "response": {
+        "status": "ok",
+        "message": "Server is running properly"
+      }
+    },
+    {
+      "name": "User Registration",
+      "method": "POST",
+      "path": "/register",
+      "description": "Register a new user account",
+      "requestBody": {
+        "username": "string (email format)",
+        "password": "string (min 6 characters)",
+        "fullName": "string",
+        "email": "string (email format)"
+      },
+      "successResponse": {
+        "id": "number",
+        "username": "string",
+        "fullName": "string",
+        "email": "string",
+        "isAdmin": "boolean"
+      },
+      "errorCodes": [400, 409]
+    },
+    {
+      "name": "User Login",
+      "method": "POST",
+      "path": "/login",
+      "description": "Authenticate user and create session",
+      "requestBody": {
+        "username": "string (email)",
+        "password": "string"
+      },
+      "successResponse": {
+        "id": "number",
+        "username": "string",
+        "fullName": "string",
+        "email": "string",
+        "isAdmin": "boolean"
+      },
+      "errorCodes": [401]
+    },
+    {
+      "name": "User Logout",
+      "method": "POST",
+      "path": "/logout",
+      "description": "End user session",
+      "requiresAuth": true,
+      "successResponse": "No content (200)"
+    },
+    {
+      "name": "Submit Loan Application",
+      "method": "POST",
+      "path": "/loan-application",
+      "description": "Submit a new loan application",
+      "requestBody": {
+        "fullName": "string (required)",
+        "email": "string (required, email format)",
+        "phone": "string (required)",
+        "panNumber": "string (required)",
+        "loanType": "enum: personal|business|home|education",
+        "loanAmount": "number (required, positive)",
+        "loanPurpose": "enum: debt-consolidation|home-improvement|business-expansion|education|wedding|medical|other",
+        "employmentType": "enum: salaried|self-employed|business-owner|other",
+        "loanTenure": "number (optional, default: 12)"
+      },
+      "successResponse": {
+        "message": "string",
+        "applicationId": "number",
+        "application": "object (full application details)"
+      },
+      "errorCodes": [400, 500]
+    },
+    {
+      "name": "Get User Loan Applications",
+      "method": "GET",
+      "path": "/loan-applications/user",
+      "description": "Get all loan applications for authenticated user",
+      "requiresAuth": true,
+      "successResponse": "array of loan application objects",
+      "errorCodes": [401, 500]
+    },
+    {
+      "name": "Submit Contact Request",
+      "method": "POST",
+      "path": "/contact",
+      "description": "Submit a contact form request",
+      "requestBody": {
+        "name": "string (required)",
+        "email": "string (required, email format)",
+        "subject": "string (required)",
+        "message": "string (required)"
+      },
+      "successResponse": {
+        "message": "string",
+        "requestId": "number"
+      },
+      "errorCodes": [400, 500]
+    },
+    {
+      "name": "Upload Document",
+      "method": "POST",
+      "path": "/documents/upload/{applicationId}",
+      "description": "Upload a document for a loan application",
+      "requiresAuth": true,
+      "contentType": "multipart/form-data",
+      "requestBody": {
+        "document": "file (PDF, JPG, PNG, DOC, DOCX, max 10MB)",
+        "documentType": "enum: identity|address|income|bank-statement|property|other",
+        "description": "string (optional)"
+      },
+      "successResponse": {
+        "message": "string",
+        "document": "object (document details)"
+      },
+      "errorCodes": [400, 404, 500]
+    },
+    {
+      "name": "Get Application Documents",
+      "method": "GET",
+      "path": "/documents/{applicationId}",
+      "description": "Get all documents for a loan application",
+      "requiresAuth": true,
+      "successResponse": "array of document objects",
+      "errorCodes": [404, 500]
+    },
+    {
+      "name": "Download Document",
+      "method": "GET",
+      "path": "/documents/download/{documentId}",
+      "description": "Download a specific document",
+      "requiresAuth": true,
+      "successResponse": "file download",
+      "errorCodes": [404, 500]
+    },
+    {
+      "name": "Delete Document",
+      "method": "DELETE",
+      "path": "/documents/{documentId}",
+      "description": "Delete a document",
+      "requiresAuth": true,
+      "successResponse": {
+        "message": "string",
+        "fileDeleted": "boolean"
+      },
+      "errorCodes": [404, 500]
+    },
+    {
+      "name": "Re-upload Document",
+      "method": "POST",
+      "path": "/documents/reupload/{documentId}",
+      "description": "Replace an existing document with a new file",
+      "requiresAuth": true,
+      "contentType": "multipart/form-data",
+      "requestBody": {
+        "document": "file (PDF, JPG, PNG, DOC, DOCX, max 10MB)",
+        "documentType": "string (optional)",
+        "description": "string (optional)"
+      },
+      "successResponse": {
+        "message": "string",
+        "document": "object (updated document details)"
+      },
+      "errorCodes": [400, 404, 500]
+    },
+    {
+      "name": "Get Testimonials",
+      "method": "GET",
+      "path": "/testimonials",
+      "description": "Get published testimonials",
+      "successResponse": "array of testimonial objects",
+      "errorCodes": [500]
+    }
+  ],
+  "dataTypes": {
+    "loanTypes": ["personal", "business", "home", "education"],
+    "loanPurposes": ["debt-consolidation", "home-improvement", "business-expansion", "education", "wedding", "medical", "other"],
+    "employmentTypes": ["salaried", "self-employed", "business-owner", "other"],
+    "documentTypes": ["identity", "address", "income", "bank-statement", "property", "other"],
+    "applicationStatuses": ["pending", "approved", "rejected", "under-review"]
+  },
+  "fileUpload": {
+    "supportedTypes": ["application/pdf", "image/jpeg", "image/png", "image/jpg", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"],
+    "maxSize": "10MB",
+    "uploadPath": "./uploads/"
+  },
+  "authentication": {
+    "type": "session-based",
+    "credentials": "include",
+    "sessionExpiry": "30 days",
+    "loginRequired": "Set requiresAuth: true for protected endpoints"
+  },
+  "cors": {
+    "origin": "*",
+    "credentials": true,
+    "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    "headers": ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"]
+  },
+  "examples": {
+    "login": {
+      "url": "/api/login",
+      "method": "POST",
+      "body": {
+        "username": "user@example.com",
+        "password": "password123"
+      }
+    },
+    "loanApplication": {
+      "url": "/api/loan-application",
+      "method": "POST",
+      "body": {
+        "fullName": "John Doe",
+        "email": "john@example.com",
+        "phone": "+91-9876543210",
+        "panNumber": "ABCDE1234F",
+        "loanType": "personal",
+        "loanAmount": 500000,
+        "loanPurpose": "debt-consolidation",
+        "employmentType": "salaried",
+        "loanTenure": 24
+      }
+    },
+    "documentUpload": {
+      "url": "/api/documents/upload/123",
+      "method": "POST",
+      "contentType": "multipart/form-data",
+      "formData": {
+        "document": "file",
+        "documentType": "identity",
+        "description": "Aadhaar Card"
+      }
+    }
+  }
+}
