@@ -2,8 +2,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ParallaxText from "./ParallaxText";
-import LetterReveal from "./LetterReveal";
-import MorphingText from "./MorphingText";
 
 const Services = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
@@ -89,14 +87,9 @@ const Services = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <LetterReveal 
-            trigger="#services"
-            className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
-            stagger={0.08}
-            duration={1.2}
-          >
-            Our <MorphingText words={["Services", "Solutions", "Expertise", "Capabilities"]} className="text-blue-600" speed={2} />
-          </LetterReveal>
+          <ParallaxText speed={0.3} className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            Our Services
+          </ParallaxText>
           <ParallaxText speed={0.4} className="text-xl text-gray-800 max-w-3xl mx-auto">
             We offer comprehensive digital solutions to help your business thrive in the digital landscape.
           </ParallaxText>

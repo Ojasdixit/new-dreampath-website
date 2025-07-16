@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ParallaxText from "./ParallaxText";
-import MorphingText from "./MorphingText";
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -87,11 +86,7 @@ const Hero = () => {
         <ParallaxText speed={0.4} className="hero-subtitle text-lg md:text-xl mb-6" style={{
           textShadow: "0 2px 4px rgba(0,0,0,0.5)"
         }}>
-          Creative <MorphingText 
-            words={["Design", "Innovation", "Experience", "Solutions"]} 
-            className="text-blue-200 font-bold"
-            speed={1.5}
-          /> Agency
+          Creative Website Design Agency
         </ParallaxText>
         
 
