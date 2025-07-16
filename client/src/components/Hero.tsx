@@ -104,8 +104,8 @@ const Hero = () => {
       {/* Company Logos Container with Radial Movement */}
       <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2">
         <div className="relative w-96 h-24 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: '1000px' }}>
-            <div className="radial-orbit relative w-80 h-20" style={{ transformStyle: 'preserve-3d' }}>
+          <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: '600px' }}>
+            <div className="radial-orbit relative w-80 h-20" style={{ transformStyle: 'preserve-3d', transform: 'rotateX(15deg)' }}>
               {[
                 { name: "Figma", angle: 0 },
                 { name: "Framer", angle: 45 },
@@ -120,7 +120,7 @@ const Hero = () => {
                   key={logo.name}
                   className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                   style={{
-                    animation: `radialSpin 20s linear infinite`,
+                    animation: `radialSpin 20s linear infinite, logoVisibility 20s linear infinite`,
                     animationDelay: `${index * -2.5}s`,
                     transformOrigin: '0 0'
                   }}

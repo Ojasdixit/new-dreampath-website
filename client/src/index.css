@@ -95,13 +95,33 @@
 }
 
 @keyframes radialSpin {
-  0% { transform: rotateY(0deg) translateX(120px) rotateY(0deg); }
-  100% { transform: rotateY(360deg) translateX(120px) rotateY(-360deg); }
+  0% { transform: rotateY(0deg) translateZ(80px); }
+  25% { transform: rotateY(90deg) translateZ(80px); }
+  50% { transform: rotateY(180deg) translateZ(80px); }
+  75% { transform: rotateY(270deg) translateZ(80px); }
+  100% { transform: rotateY(360deg) translateZ(80px); }
 }
 
 .logo-3d {
   transform-style: preserve-3d;
   backface-visibility: hidden;
+}
+
+.radial-orbit {
+  transform-style: preserve-3d;
+}
+
+.radial-orbit > div {
+  backface-visibility: hidden;
+}
+
+/* Create visibility fade effect based on rotation angle */
+@keyframes logoVisibility {
+  0% { opacity: 1; }
+  25% { opacity: 0.8; }
+  50% { opacity: 0; }
+  75% { opacity: 0.8; }
+  100% { opacity: 1; }
 }
 
 /* Performance optimizations */
