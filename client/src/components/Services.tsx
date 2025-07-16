@@ -83,7 +83,7 @@ const Services = () => {
     <section
       id="services"
       ref={servicesRef}
-      className="relative min-h-screen py-20 px-6"
+      className="relative min-h-screen py-20 px-6 bg-black/60"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
