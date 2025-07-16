@@ -74,7 +74,7 @@ const About = () => {
           <div className="about-content">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="/images/about-hero-new.jpg" 
+                src="/images/about-hero.jpg" 
                 alt="DreamPath Creative Team" 
                 className="w-full h-80 object-cover"
               />
