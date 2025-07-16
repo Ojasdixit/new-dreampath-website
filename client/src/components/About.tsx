@@ -65,36 +65,36 @@ const About = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-          <div className="about-content bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Vision</h3>
-            <p className="text-gray-800 text-lg leading-relaxed mb-6">
+          <div className="about-content bg-white/20 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+            <h3 className="text-3xl font-bold text-white mb-6">Our Vision</h3>
+            <p className="text-white/90 text-lg leading-relaxed mb-6">
               At DreamPath, we believe in the power of creativity to transform businesses and inspire audiences. 
               Every project is a journey toward bringing your vision to life through innovative design and 
               cutting-edge technology.
             </p>
-            <p className="text-gray-800 text-lg leading-relaxed">
+            <p className="text-white/90 text-lg leading-relaxed">
               We don't just create designs; we craft experiences that resonate, engage, and leave lasting impressions. 
               Our collaborative approach ensures that every dream becomes a reality.
             </p>
           </div>
 
-          <div className="about-content bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Approach</h3>
-            <ul className="space-y-4 text-gray-800">
+          <div className="about-content bg-white/20 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+            <h3 className="text-3xl font-bold text-white mb-6">Our Approach</h3>
+            <ul className="space-y-4 text-white/90">
               <li className="flex items-center">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
                 Creative strategy and brand positioning
               </li>
               <li className="flex items-center">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
                 User-centered design methodology
               </li>
               <li className="flex items-center">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
                 Cutting-edge technology integration
               </li>
               <li className="flex items-center">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
                 Continuous collaboration and feedback
               </li>
             </ul>
